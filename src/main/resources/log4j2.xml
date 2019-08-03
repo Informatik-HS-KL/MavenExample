@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+<Appenders>
+     <Console name="Console" target="SYSTEM_OUT">
+       <PatternLayout>
+         <Pattern>%d{HH:mm} %-5level %logger{36} - %msg%n</Pattern>
+       </PatternLayout>
+    </Console>
+    <!-- Default FileAppender ist append="true" -->
+    <File name="myFile" fileName="logs/example.log"
+                        append="false">
+      <PatternLayout>
+         <Pattern>%d{HH:mm} %-5level %logger{36} - %msg%n</Pattern>
+      </PatternLayout>
+     </File>
+     <Async name="Async">
+       <AppenderRef ref="myFile"/>
+    </Async>
+</Appenders>
+<Loggers>
+	<!-- Durch ersetzen des AppenderRef kann die Ausgabe
+	     auf die Konsole umgelenkt werden! -->
+    <Root level="INFO">
+      <AppenderRef ref="myFile"/>
+    </Root>
+</Loggers>
+</Configuration>
