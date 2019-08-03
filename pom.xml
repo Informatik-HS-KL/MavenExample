@@ -52,6 +52,14 @@
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.1.2</version>
+	  <configuration>
+		  <archive>
+			  <manifest>
+				  <mainClass>de.hskl.ita.App</mainClass>
+				  <addClasspath>true</addClasspath>
+			  </manifest>
+		  </archive>
+	  </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
