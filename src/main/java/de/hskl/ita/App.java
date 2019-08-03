@@ -1,8 +1,10 @@
 package de.hskl.ita;
 
 /**
- * Hello world!
+ * Hello world.
  *
+ * Diese Klasse wurde von Maven angelegt
+ * und um eine weitere Ausgabe auf der Konsole erweitert.
  */
 public class App 
 {
