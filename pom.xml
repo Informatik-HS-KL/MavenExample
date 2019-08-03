@@ -10,7 +10,7 @@
 
   <name>firstMaven</name>
   <url>http://webhome.hs-kl.de/~brill</url>
-  <description>Unser erstes Maven Projekt mit Javadoc</description>
+  <description>Unser erstes Maven Projekt mit Javadoc und Doxygen</description>
   <developers>
 	  <developer>
 		  <id>brill</id>
@@ -105,6 +105,27 @@
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
+        </plugin>
+        <plugin>
+		<!-- Quelle: https://github.com/os-cillation/doxygen-maven-plugin -->
+                <groupId>de.oscillation.maven</groupId>
+                <artifactId>doxygen-maven-plugin</artifactId>
+                <version>0.1.0</version>
+                <configuration>
+                    <workingDirectory>${basedir}</workingDirectory>
+                    <executable>doxygen</executable>
+                    <doxyfile>Doxyfile</doxyfile>
+                    <autogen>false</autogen>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
         </plugin>
       </plugins>
     </pluginManagement>
