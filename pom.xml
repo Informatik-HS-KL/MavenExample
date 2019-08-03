@@ -11,7 +11,16 @@
   <name>firstMaven</name>
   <url>http://webhome.hs-kl.de/~brill</url>
   <description>Unser erstes Maven Projekt</description>
-
+  <developers>
+	  <developer>
+		  <id>brill</id>
+		  <name>Manfred Brill</name>
+		  <email>manfred.brill@hs-kl.de</email>
+		  <url>http://webhome.hs-kl.de/~brill</url>
+		  <organization>Hochschule Kaiserslautern</organization>
+		  <organizationUrl>http://www.hs-kl.de</organizationUrl>
+	  </developer>
+  </developers>  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
@@ -66,11 +75,18 @@
 		<artifactId>exec-maven-plugin</artifactId>
 		<version>1.6.0</version>
 		<executions>
-			<execution>
-				<goals>
-					<goal>java</goal>
-				</goals>
-			</execution>
+		    <execution>
+			<id>hello</id>
+	                <configuration>
+		                <mainClass>de.hskl.ita.App</mainClass>
+	                </configuration>
+		    </execution>
+		    <execution>
+			<id>time</id>
+	                <configuration>
+		                <mainClass>de.hskl.ita.TimeStamp</mainClass>
+	                </configuration>
+		    </execution>
 		</executions>
 		<!-- Main-Class in pom.xml -->
 		<configuration>
