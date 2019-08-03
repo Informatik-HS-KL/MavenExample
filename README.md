@@ -6,3 +6,4 @@ Dieses Beispiel verwenden wir als Demonstrationsobjekt für die Einführung in M
 Das GitHub-Repo enthält x Branches:
 - master
 - develop
+- documentations mit Plugins für die Dokumentation mit Javadoc und Doxygen
