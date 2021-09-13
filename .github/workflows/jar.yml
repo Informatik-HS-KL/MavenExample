@@ -19,7 +19,7 @@ jobs:
     - name: Create a jar
       run: mvn -B package --file pom.xml package
     - name: Archive the jar as an artifact
-    - uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v2
       with:
         name: jar file
         path: target/*.jar
