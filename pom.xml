@@ -43,6 +43,7 @@
 		<url>scm:git:git@github.com:MBrill/MavenExample.git</url>
 	  </site>
   </distributionManagement>
+  
   <build>
 
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
