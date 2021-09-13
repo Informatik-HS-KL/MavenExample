@@ -1,4 +1,4 @@
-name: JavaDoc mit mvn site im Branch documentations
+name: JavaDoc mit mvn site im Branch documentationAction
 
 on:
   push:
