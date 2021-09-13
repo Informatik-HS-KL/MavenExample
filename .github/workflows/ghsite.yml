@@ -24,4 +24,4 @@ jobs:
       with:
         name: Deploy JAvaDoc
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: .docs
+        publish_dir: ./docs
