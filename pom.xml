@@ -23,8 +23,9 @@
   </developers>  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+	<github.global.servers>github</github.global.servers>
   </properties>
 
   <dependencies>
@@ -36,7 +37,14 @@
     </dependency>
   </dependencies>
 
+  <distributionManagement>
+	  <site>
+	    <id>github</id>
+		<url>scm:git:git@github.com:MBrill/MavenExample.git</url>
+	  </site>
+  </distributionManagement>
   <build>
+
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
@@ -60,43 +68,52 @@
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.1.2</version>
-	  <configuration>
-		  <archive>
+	      <configuration>
+		    <archive>
 			  <manifest>
 				  <mainClass>de.hskl.ita.App</mainClass>
 				  <addClasspath>true</addClasspath>
 			  </manifest>
-		  </archive>
-	  </configuration>
+		    </archive>
+	      </configuration>
         </plugin>
-	<!-- Das Plugin f�r das Ausf�hren von Anwendungen -->
-	<plugin>
-		<groupId>org.codehaus.mojo</groupId>
-		<artifactId>exec-maven-plugin</artifactId>
-		<version>1.6.0</version>
-		<executions>
+        <plugin>
+		 <!--  Plugin für das Deployment auf gh pages -->
+		   <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-scm-publish-plugin</artifactId>
+          <version>3.0.0</version>
+	      <configuration>
+		    <scmBranch>main</scmBranch>
+	      </configuration>
+        </plugin>
+	   <!-- Das Plugin f�r das Ausfuehren von Anwendungen -->
+	   <plugin>
+		 <groupId>org.codehaus.mojo</groupId>
+		 <artifactId>exec-maven-plugin</artifactId>
+		 <version>1.6.0</version>
+		 <executions>
 		    <execution>
-			<id>hello</id>
+			  <id>hello</id>
 	                <configuration>
 		                <mainClass>de.hskl.ita.App</mainClass>
-	                </configuration>
-		    </execution>
-		    <execution>
-			<id>time</id>
+	         </configuration>
+		     </execution>
+		     <execution>
+			  <id>time</id>
 	                <configuration>
 		                <mainClass>de.hskl.ita.TimeStamp</mainClass>
 	                </configuration>
-		    </execution>
-		</executions>
-		<!-- Main-Class in pom.xml -->
-		<configuration>
+		     </execution>
+		   </executions>
+		  <!-- Main-Class in pom.xml -->
+		  <configuration>
 			<mainClass>de.hskl.ita.TimeStamp</mainClass>
 			<arguments>
 				<argument>Datum wie in U.S.A.:</argument>
 				<argument>yyyy/MM/dd</argument>
 			</arguments>
-		</configuration>
-	</plugin>
+		  </configuration>
+	    </plugin>
         <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
         <plugin>
           <artifactId>maven-site-plugin</artifactId>
@@ -105,6 +122,16 @@
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
+        </plugin>
+		 <plugin>
+		 <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-scm-publish-plugin</artifactId>
+          <version>3.1.0</version>
+		  <configuration>
+		    <scmBranch>main</scmBranch>
+			<serverId>github</serverId>
+			<username>MBrill</username>
+		  </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
