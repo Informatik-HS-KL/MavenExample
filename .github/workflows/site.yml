@@ -3,7 +3,7 @@ name: JavaDoc mit mvn site im Branch documentationAction
 on:
   push:
     branches: 
-      documentations
+      documentationActions
 
 jobs:
   build:
