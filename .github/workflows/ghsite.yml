@@ -18,11 +18,10 @@ jobs:
         cache: maven
     - name: Create javadoc pages
       run: mvn -B package --file pom.xml site site:stage
-    - name: Deploy
+    - name: Deploy JavaDoc
       uses: peaceiris/actions-gh-pages@v3
       if: ${{ github.ref == 'refs/heads/main' }}
       with:
-        name: Deploy JavaDoc
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./target/staging
+        #publish_dir: ./target/staging
         destination_dir: ./docs
