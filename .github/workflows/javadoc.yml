@@ -23,5 +23,5 @@ jobs:
       if: ${{ github.ref == 'refs/heads/main' }}
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./target/site/staging/apidocs
+        publish_dir: ./target/staging/apidocs
         publish_branch: gh-pages
