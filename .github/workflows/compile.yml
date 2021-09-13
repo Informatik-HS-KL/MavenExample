@@ -4,10 +4,9 @@
 name: Java CI with Maven
 
 on:
-  workflow_dispatch:
-    branches: [ documentations ]
-  pull_request:
-    branches: [ documentations]
+  workflow_dispatch
+    branches:
+      - documentations
 
 jobs:
   build:
