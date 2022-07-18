@@ -9,6 +9,6 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
-	System.out.println( "My first Maven projekt" );
+	    System.out.println( "My first Maven projekt" );
     }
 }
